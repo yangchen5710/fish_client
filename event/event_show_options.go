@@ -23,7 +23,7 @@ func ShowOptions(ctx *Context, data string) {
 		}
 		switch choose {
 		case 1:
-			//showOptionsPvP()
+			ShowOptionsPVP(ctx, data)
 		case 2:
 			//showOptionsPvP()
 		case 3:

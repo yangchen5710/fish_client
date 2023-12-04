@@ -30,11 +30,11 @@ func (ctx *Context) Listen() {
 
 func (ctx *Context) call(code string, data string) {
 	switch code {
-	case "clientConnect":
+	case CLIENT_CONNECT:
 		ClientConnect(ctx, data)
-	case "clientNicknameSet":
+	case CLIENT_NICKNAME_SET:
 		ClientNicknameSet(ctx, data)
-	case "showOptions":
+	case SHOW_OPTIONS:
 		ShowOptions(ctx, data)
 	default:
 		fmt.Println("undefined Code")
