@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func RoomCreateSuccess(ctx *Context, data string) {
+func RoomCreateSuccess(ctx *EContext, data string) {
 	room := Room{}
 	_ = json.Unmarshal([]byte(data), &room)
 

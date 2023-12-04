@@ -7,21 +7,21 @@ import (
 
 type Room common.Room
 
-type Context struct {
+type EContext struct {
 	clientChan *chan common.Message
 	serverChan *chan common.Message
 	UserId     int
 }
 
-func NewEventContext(clientChan, serverChan *chan common.Message) *Context {
-	return &Context{
+func NewEventContext(clientChan, serverChan *chan common.Message) *EContext {
+	return &EContext{
 		clientChan: clientChan,
 		serverChan: serverChan,
 		UserId:     0,
 	}
 }
 
-func (ctx *Context) Listen() {
+func (ctx *EContext) Listen() {
 	go func() {
 		for {
 			transferData := <-*ctx.clientChan
@@ -30,7 +30,7 @@ func (ctx *Context) Listen() {
 	}()
 }
 
-func (ctx *Context) call(code string, data string) {
+func (ctx *EContext) call(code string, data string) {
 	switch code {
 	case CLIENT_CONNECT:
 		ClientConnect(ctx, data)
@@ -49,14 +49,14 @@ func (ctx *Context) call(code string, data string) {
 	}
 }
 
-func (ctx *Context) pushToServer(serverCode string, data string) {
+func (ctx *EContext) pushToServer(serverCode string, data string) {
 	*ctx.serverChan <- common.Message{
 		Code: serverCode,
 		Data: data,
 	}
 }
 
-func (ctx *Context) InitLastSellInfo() {
+func (ctx *EContext) InitLastSellInfo() {
 	//ctx.LastPokers = nil
 	//ctx.LastSellClientNickname = ""
 	//ctx.LastSellClientType = ""

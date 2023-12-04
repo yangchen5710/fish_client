@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func ShowOptions(ctx *Context, data string) {
+func ShowOptions(ctx *EContext, data string) {
 	command.PrintNotice("Options: ")
 	command.PrintNotice("1. PvP")
 	command.PrintNotice("2. PvE")

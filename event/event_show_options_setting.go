@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func ShowOptionsSettings(ctx *Context, data string) {
+func ShowOptionsSettings(ctx *EContext, data string) {
 	command.PrintNotice("Setting: ")
 	command.PrintNotice("1. Card with shape edges (Default)")
 	command.PrintNotice("2. Card with rounded edges")

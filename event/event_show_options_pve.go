@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func ShowOptionsPVE(ctx *Context, data string) {
+func ShowOptionsPVE(ctx *EContext, data string) {
 	command.PrintNotice("PVE: ")
 	command.PrintNotice("1. Simple Model")
 	command.PrintNotice("2. Medium Model")

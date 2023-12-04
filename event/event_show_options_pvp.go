@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func ShowOptionsPVP(ctx *Context, data string) {
+func ShowOptionsPVP(ctx *EContext, data string) {
 	command.PrintNotice("PVP: ")
 	command.PrintNotice("1. Create Room")
 	command.PrintNotice("2. Room List")
