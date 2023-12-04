@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+type Room common.Room
+
 type Context struct {
 	clientChan *chan common.Message
 	serverChan *chan common.Message
@@ -36,6 +38,8 @@ func (ctx *Context) call(code string, data string) {
 		ClientNicknameSet(ctx, data)
 	case SHOW_OPTIONS:
 		ShowOptions(ctx, data)
+	case ROOM_CREATE_SUCCESS:
+		RoomCreateSuccess(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 		//fmt.Println("choose: " + choose)
@@ -50,4 +54,10 @@ func (ctx *Context) pushToServer(serverCode string, data string) {
 		Code: serverCode,
 		Data: data,
 	}
+}
+
+func (ctx *Context) InitLastSellInfo() {
+	//ctx.LastPokers = nil
+	//ctx.LastSellClientNickname = ""
+	//ctx.LastSellClientType = ""
 }

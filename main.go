@@ -13,8 +13,6 @@ import (
 	"strconv"
 )
 
-var c *gosocketio.Client
-
 func main() {
 	if len(os.Args) != 3 {
 		fmt.Println("Usage: ./executable <IP> <port>")

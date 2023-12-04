@@ -25,9 +25,9 @@ func ShowOptions(ctx *Context, data string) {
 		case 1:
 			ShowOptionsPVP(ctx, data)
 		case 2:
-			//showOptionsPvP()
+			ShowOptionsPVE(ctx, data)
 		case 3:
-			//showOptionsPvP()
+			ShowOptionsSettings(ctx, data)
 		default:
 			command.PrintNotice("Invalid option, please choose again：")
 			ShowOptions(ctx, data)

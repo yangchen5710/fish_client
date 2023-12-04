@@ -11,7 +11,7 @@ const (
 	CODE_SHOW_OPTIONS_PVE            = "CODE_SHOW_OPTIONS_PVE"            // 人机对战选项
 	CODE_SHOW_ROOMS                  = "CODE_SHOW_ROOMS"                  // 展示房间列表
 	CODE_SHOW_POKERS                 = "CODE_SHOW_POKERS"                 // 展示Poker
-	CODE_ROOM_CREATE_SUCCESS         = "CODE_ROOM_CREATE_SUCCESS"         // 创建房间成功
+	ROOM_CREATE_SUCCESS              = "ROOM_CREATE_SUCCESS"              // 创建房间成功
 	CODE_ROOM_JOIN_SUCCESS           = "CODE_ROOM_JOIN_SUCCESS"           // 加入房间成功
 	CODE_ROOM_JOIN_FAIL_BY_FULL      = "CODE_ROOM_JOIN_FAIL_BY_FULL"      // 房间人数已满
 	CODE_ROOM_JOIN_FAIL_BY_INEXIST   = "CODE_ROOM_JOIN_FAIL_BY_INEXIST"   // 加入-房间不存在
