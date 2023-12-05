@@ -6,5 +6,10 @@ type Message struct {
 }
 
 type Room struct {
-	RoomId int
+	RoomId          int
+	RoomName        string
+	RoomStatus      int
+	RoomType        int
+	RoomOwner       string
+	RoomClientCount int
 }

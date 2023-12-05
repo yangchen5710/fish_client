@@ -7,6 +7,8 @@ import (
 
 type Room common.Room
 
+const NICKNAME_MAX_LENGTH = 10
+
 type EContext struct {
 	clientChan *chan common.Message
 	serverChan *chan common.Message
@@ -40,6 +42,10 @@ func (ctx *EContext) call(code string, data string) {
 		ShowOptions(ctx, data)
 	case ROOM_CREATE_SUCCESS:
 		RoomCreateSuccess(ctx, data)
+	case SHOW_ROOMS:
+		ShowRooms(ctx, data)
+	case ROOM_JOIN_SUCCESS:
+		RoomJoinSuccess(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 		//fmt.Println("choose: " + choose)

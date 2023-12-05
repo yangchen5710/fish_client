@@ -5,8 +5,6 @@ import (
 	gosocketio "github.com/graarh/golang-socketio"
 )
 
-//var Client *gosocketio.Client
-
 type SocketIo struct {
 	client     *gosocketio.Client
 	clientChan *chan common.Message
