@@ -6,20 +6,23 @@ import (
 )
 
 type Room common.Room
+type Poker = common.Poker
 
 const NICKNAME_MAX_LENGTH = 10
 
 type EContext struct {
-	clientChan *chan common.Message
-	serverChan *chan common.Message
-	UserId     int
+	clientChan       *chan common.Message
+	serverChan       *chan common.Message
+	UserId           string
+	PokerPrinterType int
 }
 
 func NewEventContext(clientChan, serverChan *chan common.Message) *EContext {
 	return &EContext{
-		clientChan: clientChan,
-		serverChan: serverChan,
-		UserId:     0,
+		clientChan:       clientChan,
+		serverChan:       serverChan,
+		UserId:           "",
+		PokerPrinterType: 0,
 	}
 }
 

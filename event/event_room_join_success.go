@@ -11,7 +11,7 @@ func RoomJoinSuccess(ctx *EContext, data string) {
 	_ = json.Unmarshal([]byte(data), &dataMap)
 
 	ctx.InitLastSellInfo()
-	joinClientId := int(dataMap["clientId"].(float64))
+	joinClientId, _ := dataMap["clientId"].(string)
 
 	if ctx.UserId == joinClientId {
 		command.PrintNotice("You have joined room：" + strconv.Itoa(int(dataMap["roomId"].(float64))) + ". There are " + strconv.Itoa(int(dataMap["roomClientCount"].(float64))) + " players in the room now.")
@@ -19,5 +19,5 @@ func RoomJoinSuccess(ctx *EContext, data string) {
 	} else {
 		command.PrintNotice(dataMap["clientNickname"].(string) + " joined room, the current number of room player is " + strconv.Itoa(int(dataMap["roomClientCount"].(float64))))
 	}
-
+	//os.Exit(0)
 }
