@@ -32,6 +32,5 @@ func ShowOptions(ctx *EContext, data string) {
 			command.PrintNotice("Invalid option, please choose again：")
 			ShowOptions(ctx, data)
 		}
-
 	}
 }

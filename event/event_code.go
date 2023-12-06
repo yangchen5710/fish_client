@@ -16,7 +16,7 @@ const (
 	ROOM_JOIN_FAIL_BY_FULL           = "ROOM_JOIN_FAIL_BY_FULL"           // 房间人数已满
 	ROOM_JOIN_FAIL_BY_INEXIST        = "ROOM_JOIN_FAIL_BY_INEXIST"        // 加入-房间不存在
 	GAME_STARTING                    = "GAME_STARTING"                    // 开始游戏
-	CODE_GAME_LANDLORD_ELECT         = "CODE_GAME_LANDLORD_ELECT"         // 抢地主
+	GAME_LANDLORD_ELECT              = "GAME_LANDLORD_ELECT"              // 抢地主
 	CODE_GAME_LANDLORD_CONFIRM       = "CODE_GAME_LANDLORD_CONFIRM"       // 地主确认
 	CODE_GAME_LANDLORD_CYCLE         = "CODE_GAME_LANDLORD_CYCLE"         // 地主一轮确认结束
 	CODE_GAME_POKER_PLAY             = "CODE_GAME_POKER_PLAY"             // 出牌回合

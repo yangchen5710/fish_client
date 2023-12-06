@@ -6,10 +6,14 @@ import (
 )
 
 func GameStarting(ctx *EContext, data string) {
+	dataMap := make(map[string]interface{})
+	_ = json.Unmarshal([]byte(data), &dataMap)
+
 	command.PrintNotice("Game starting !!")
 
 	pokers := make([]Poker, 0)
-	_ = json.Unmarshal([]byte(data), &pokers)
+	pokersBytes, _ := json.Marshal(dataMap["pokers"])
+	_ = json.Unmarshal([]byte(pokersBytes), &pokers)
 
 	command.PrintNotice("")
 	command.PrintNotice("Your pokers are")

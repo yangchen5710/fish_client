@@ -51,6 +51,8 @@ func (ctx *EContext) call(code string, data string) {
 		RoomJoinSuccess(ctx, data)
 	case GAME_STARTING:
 		GameStarting(ctx, data)
+	case GAME_LANDLORD_ELECT:
+		GameLandlordElect(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 		//fmt.Println("choose: " + choose)
