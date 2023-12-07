@@ -18,8 +18,8 @@ func GameLandlordElect(ctx *EContext, data string) {
 	}*/
 	if turnClientId == ctx.UserId {
 		score := int(dataMap["currentScore"].(float64))
-		command.PrintNotice("current score is" + strconv.Itoa(score) + ", please enter score ")
-		command.PrintNotice("It's your turn. Do you want to rob the landlord? [/1/2/3] (enter [EXIT] to exit current room) (enter [PASS] to pass turn)")
+		command.PrintNotice("current score is " + strconv.Itoa(score) + ", please enter score ")
+		command.PrintNotice("It's your turn. Do you want to rob the landlord? [1/2/3] (enter [EXIT] to exit current room) (enter [PASS] to pass turn)")
 		line := strings.ToUpper(command.DeletePreAndSufSpace(command.Write("1/2/3")))
 		if line == "EXIT" {
 			os.Exit(0)
@@ -31,9 +31,7 @@ func GameLandlordElect(ctx *EContext, data string) {
 				choose = -1
 			}
 			switch choose {
-			case 1:
-			case 2:
-			case 3:
+			case 1, 2, 3:
 				ctx.pushToServer(SERVER_CODE_GAME_LANDLORD_ELECT, strconv.Itoa(choose))
 			default:
 				command.PrintNotice("Invalid options")

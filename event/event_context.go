@@ -53,6 +53,14 @@ func (ctx *EContext) call(code string, data string) {
 		GameStarting(ctx, data)
 	case GAME_LANDLORD_ELECT:
 		GameLandlordElect(ctx, data)
+	case ROOM_JOIN_FAIL_BY_FULL:
+		RoomJoinFailByFull(ctx, data)
+	case ROOM_JOIN_FAIL_BY_INEXIST:
+		RoomJoinFailByInExist(ctx, data)
+	case GAME_LANDLORD_CYCLE:
+		GameLandlordCycle(ctx, data)
+	case GAME_LANDLORD_CONFIRM:
+		GameLandlordConfirm(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 		//fmt.Println("choose: " + choose)

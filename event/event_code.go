@@ -17,8 +17,8 @@ const (
 	ROOM_JOIN_FAIL_BY_INEXIST        = "ROOM_JOIN_FAIL_BY_INEXIST"        // 加入-房间不存在
 	GAME_STARTING                    = "GAME_STARTING"                    // 开始游戏
 	GAME_LANDLORD_ELECT              = "GAME_LANDLORD_ELECT"              // 抢地主
-	CODE_GAME_LANDLORD_CONFIRM       = "CODE_GAME_LANDLORD_CONFIRM"       // 地主确认
-	CODE_GAME_LANDLORD_CYCLE         = "CODE_GAME_LANDLORD_CYCLE"         // 地主一轮确认结束
+	GAME_LANDLORD_CONFIRM            = "GAME_LANDLORD_CONFIRM"            // 地主确认
+	GAME_LANDLORD_CYCLE              = "GAME_LANDLORD_CYCLE"              // 地主一轮确认结束
 	CODE_GAME_POKER_PLAY             = "CODE_GAME_POKER_PLAY"             // 出牌回合
 	CODE_GAME_POKER_PLAY_REDIRECT    = "CODE_GAME_POKER_PLAY_REDIRECT"    // 出牌重定向
 	CODE_GAME_POKER_PLAY_MISMATCH    = "CODE_GAME_POKER_PLAY_MISMATCH"    // 出牌不匹配
