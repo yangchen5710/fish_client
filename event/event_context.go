@@ -61,6 +61,8 @@ func (ctx *EContext) call(code string, data string) {
 		GameLandlordCycle(ctx, data)
 	case GAME_LANDLORD_CONFIRM:
 		GameLandlordConfirm(ctx, data)
+	case GAME_POKER_PLAY_REDIRECT:
+		GamePokerPlayRedirect(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 		//fmt.Println("choose: " + choose)

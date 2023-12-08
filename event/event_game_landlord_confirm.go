@@ -18,5 +18,8 @@ func GameLandlordConfirm(ctx *EContext, data string) {
 	_ = json.Unmarshal([]byte(pokersBytes), &additionalPokers)
 
 	command.PrintPokers(additionalPokers, ctx.PokerPrinterType)
-	ctx.pushToServer(SERVER_CODE_GAME_POKER_PLAY_REDIRECT, "")
+	landlordId := dataMap["landlordId"].(string)
+	if ctx.UserId == landlordId {
+		ctx.pushToServer(SERVER_CODE_GAME_POKER_PLAY_REDIRECT, "")
+	}
 }
