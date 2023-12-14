@@ -63,12 +63,20 @@ func (ctx *EContext) call(code string, data string) {
 		GameLandlordConfirm(ctx, data)
 	case GAME_POKER_PLAY_REDIRECT:
 		GamePokerPlayRedirect(ctx, data)
+	case GAME_POKER_PLAY_MISMATCH:
+		GamePokerPlayMismatch(ctx, data)
+	case SHOW_POKERS:
+		ShowPokers(ctx, data)
+	case GAME_POKER_PLAY_PASS:
+		GamePokerPlayPass(ctx, data)
+	case GAME_POKER_PLAY_CANT_PASS:
+		GamePokerPlayCantPass(ctx, data)
+	case GAME_OVER:
+		GameOver(ctx, data)
+	case CLIENT_EXIT:
+		ClientExit(ctx, data)
 	default:
 		fmt.Println("undefined Code")
-		//fmt.Println("choose: " + choose)
-		/*_ = c.Emit("serverNicknameSet", Message{
-			Message: option,
-		})*/
 	}
 }
 

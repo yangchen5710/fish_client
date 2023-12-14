@@ -28,6 +28,6 @@ func GamePokerPlayRedirect(ctx *EContext, data string) {
 	if sellClientId == ctx.UserId {
 		GamePokerPlay(ctx, data)
 	} else {
-		command.PrintNotice("Next player is " + dataMap["sellClientNickname"].(string) + ". Please wait for him to play his cards.")
+		command.PrintNotice("Next player is " + dataMap["sellClientNickname"].(string) + ". Please wait for him to play his pokers.")
 	}
 }
