@@ -29,6 +29,7 @@ const (
 	CODE_GAME_POKER_PLAY_ORDER_ERROR = "CODE_GAME_POKER_PLAY_ORDER_ERROR" // 顺序错误
 	GAME_OVER                        = "GAME_OVER"                        // 游戏结束
 	CODE_PVE_DIFFICULTY_NOT_SUPPORT  = "CODE_PVE_DIFFICULTY_NOT_SUPPORT"  // 人机难度不支持
+	ROOM_OWNER_SELECT                = "ROOM_OWNER_SELECT"                //重新开始游戏
 )
 
 const (
@@ -40,6 +41,7 @@ const (
 	SERVER_CODE_ROOM_CREATE_PVE          = "CODE_ROOM_CREATE_PVE"          // 创建PVE房间
 	SERVER_CODE_GET_ROOMS                = "CODE_GET_ROOMS"                // 获取房间列表
 	SERVER_CODE_ROOM_JOIN                = "CODE_ROOM_JOIN"                // 加入房间
+	SERVER_CODE_ROOM_DISBAND             = "CODE_ROOM_DISBAND"             // 解散房间
 	SERVER_CODE_GAME_STARTING            = "CODE_GAME_STARTING"            // 游戏开始
 	SERVER_CODE_GAME_LANDLORD_ELECT      = "CODE_GAME_LANDLORD_ELECT"      // 抢地主
 	SERVER_CODE_GAME_POKER_PLAY          = "CODE_GAME_POKER_PLAY"          // 出牌环节

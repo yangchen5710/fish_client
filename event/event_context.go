@@ -75,6 +75,8 @@ func (ctx *EContext) call(code string, data string) {
 		GameOver(ctx, data)
 	case CLIENT_EXIT:
 		ClientExit(ctx, data)
+	case ROOM_OWNER_SELECT:
+		RoomOwnerSelect(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 	}

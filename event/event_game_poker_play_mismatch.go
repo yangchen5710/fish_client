@@ -17,5 +17,5 @@ func GamePokerPlayMismatch(ctx *EContext, data string) {
 	}*/
 
 	command.PrintNotice("Your pokers is mismatch !!")
-	ctx.pushToServer(SERVER_CODE_GAME_POKER_PLAY_REDIRECT, "")
+	GamePokerPlay(ctx, data)
 }
