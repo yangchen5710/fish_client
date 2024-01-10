@@ -24,10 +24,12 @@ func ShowOptions(ctx *EContext, data string) {
 		switch choose {
 		case 1:
 			ShowOptionsPVP(ctx, data)
-		case 2:
-			ShowOptionsPVE(ctx, data)
-		case 3:
-			ShowOptionsSettings(ctx, data)
+		case 2, 3:
+			//ShowOptionsPVE(ctx, data)
+			command.PrintNotice("this option is currently not supported, please choose again：")
+			ShowOptions(ctx, data)
+		//case 3:
+		//ShowOptionsSettings(ctx, data)
 		default:
 			command.PrintNotice("Invalid option, please choose again：")
 			ShowOptions(ctx, data)
