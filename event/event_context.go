@@ -77,6 +77,8 @@ func (ctx *EContext) call(code string, data string) {
 		ClientExit(ctx, data)
 	case ROOM_OWNER_SELECT:
 		RoomOwnerSelect(ctx, data)
+	case "ROOM_LEAVE_SUCCESS":
+		RoomLeaveSuccess(ctx, data)
 	default:
 		fmt.Println("undefined Code")
 	}
