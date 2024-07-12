@@ -36,8 +36,9 @@ func main() {
 
 	clientChan := make(chan common.Message)
 	serverChan := make(chan common.Message)
+	inputChan := make(chan *common.Input)
 
-	ctx := event.NewEventContext(&clientChan, &serverChan)
+	ctx := event.NewEventContext(&clientChan, &serverChan, &inputChan)
 	ctx.Listen()
 
 	io := service.NewSocketIo(client, &clientChan, &serverChan)

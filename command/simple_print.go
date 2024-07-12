@@ -6,16 +6,20 @@ import (
 	"os"
 )
 
-var input = bufio.NewScanner(os.Stdin)
+var Input = bufio.NewScanner(os.Stdin)
 
 func Write(message string) string {
 	fmt.Print("[poker@" + message + "]$ ")
-	input.Scan()
-	return input.Text()
+	Input.Scan()
+	return Input.Text()
 }
 
 func PrintNotice(msg string) {
 	fmt.Println(msg)
+}
+
+func Write1(message string) {
+	fmt.Print("[poker@" + message + "]$ ")
 }
 
 func DeletePreAndSufSpace(str string) string {

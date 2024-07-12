@@ -2,6 +2,7 @@ package event
 
 import (
 	"fish/client/command"
+	"fish/client/common"
 	"os"
 	"strconv"
 	"strings"
@@ -13,7 +14,12 @@ func ShowOptions(ctx *EContext, data string) {
 	command.PrintNotice("2. PvE")
 	command.PrintNotice("3. Setting")
 	command.PrintNotice("Please enter the number of options (enter [EXIT] log out)")
-	line := strings.ToUpper(command.DeletePreAndSufSpace(command.Write("options")))
+	command.Write1("options")
+	AsynWrite("PushShowOptions", data)
+}
+
+func PushShowOptions(ctx *EContext, input *common.Input) {
+	line := strings.ToUpper(command.DeletePreAndSufSpace(input.Option))
 	if line == "EXIT" {
 		os.Exit(0)
 	} else {
@@ -23,16 +29,16 @@ func ShowOptions(ctx *EContext, data string) {
 		}
 		switch choose {
 		case 1:
-			ShowOptionsPVP(ctx, data)
+			ShowOptionsPVP(ctx, input.Data)
 		case 2, 3:
-			//ShowOptionsPVE(ctx, data)
+			//ShowOptionsPVE(ctx, input.Data)
 			command.PrintNotice("this option is currently not supported, please choose again：")
-			ShowOptions(ctx, data)
+			ShowOptions(ctx, input.Data)
 		//case 3:
-		//ShowOptionsSettings(ctx, data)
+		//ShowOptionsSettings(ctx, input.Data)
 		default:
 			command.PrintNotice("Invalid option, please choose again：")
-			ShowOptions(ctx, data)
+			ShowOptions(ctx, input.Data)
 		}
 	}
 }

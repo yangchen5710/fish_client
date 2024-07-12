@@ -2,6 +2,7 @@ package event
 
 import (
 	"fish/client/command"
+	"fish/client/common"
 	"os"
 	"strconv"
 	"strings"
@@ -12,7 +13,12 @@ func RoomOwnerSelect(ctx *EContext, data string) {
 	command.PrintNotice("1. RESTARTING GAME")
 	command.PrintNotice("2. DISBAND ROOM")
 	command.PrintNotice("Please enter the number of options (enter [EXIT] log out)")
-	line := strings.ToUpper(command.DeletePreAndSufSpace(command.Write("options")))
+	command.Write1("options")
+	AsynWrite("PushRoomOwnerSelect", data)
+}
+
+func PushRoomOwnerSelect(ctx *EContext, input *common.Input) {
+	line := strings.ToUpper(command.DeletePreAndSufSpace(input.Option))
 	if line == "EXIT" {
 		os.Exit(0)
 	} else {
@@ -29,7 +35,8 @@ func RoomOwnerSelect(ctx *EContext, data string) {
 			ctx.pushToServer(SERVER_CODE_ROOM_DISBAND, "")
 		default:
 			command.PrintNotice("Invalid option, please choose again：")
-			RoomOwnerSelect(ctx, data)
+			RoomOwnerSelect(ctx, input.Data)
 		}
 	}
+
 }

@@ -10,7 +10,7 @@ func RoomJoinSuccess(ctx *EContext, data string) {
 	dataMap := make(map[string]interface{})
 	_ = json.Unmarshal([]byte(data), &dataMap)
 
-	ctx.InitLastSellInfo()
+	//ctx.InitLastSellInfo()
 	joinClientId, _ := dataMap["clientId"].(string)
 
 	if ctx.UserId == joinClientId {

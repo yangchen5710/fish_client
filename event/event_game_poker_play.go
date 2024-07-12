@@ -3,6 +3,7 @@ package event
 import (
 	"encoding/json"
 	"fish/client/command"
+	"fish/client/common"
 	"strings"
 )
 
@@ -18,14 +19,22 @@ func GamePokerPlay(ctx *EContext, data string) {
 	command.PrintPokers(pokers, ctx.PokerPrinterType)
 
 	command.PrintNotice("Please enter the card you came up with (enter [EXIT] to exit current room, enter [PASS] to jump current round)")
-	line := command.DeletePreAndSufSpace(command.Write("card"))
+
+	command.Write1("card")
+	AsynWrite("PushGamePokerPlay", data)
+}
+
+func PushGamePokerPlay(ctx *EContext, input *common.Input) {
+	line := command.DeletePreAndSufSpace(input.Option)
 	if line == "" {
 		command.PrintNotice("Invalid enter")
-		GamePokerPlay(ctx, data)
+		GamePokerPlay(ctx, input.Data)
 	} else {
 		if strings.ToUpper(line) == "PASS" {
+			CleanInput(input)
 			ctx.pushToServer(SERVER_CODE_GAME_POKER_PLAY_PASS, "")
 		} else if strings.ToUpper(line) == "EXIT" {
+			CleanInput(input)
 			ctx.pushToServer(SERVER_CODE_CLIENT_EXIT, "")
 		} else {
 			strs := strings.Split(line, " ")
@@ -46,6 +55,7 @@ func GamePokerPlay(ctx *EContext, data string) {
 				}
 			}
 			if access {
+				CleanInput(input)
 				bytes, _ := json.Marshal(&options)
 				ctx.pushToServer(SERVER_CODE_GAME_POKER_PLAY, string(bytes))
 			} else {
@@ -54,10 +64,11 @@ func GamePokerPlay(ctx *EContext, data string) {
 					command.PrintNotice(ctx.LastSellClientNickname + "[" + ctx.LastSellClientType + "] playd:")
 					command.PrintPokers(*ctx.LastPokers, ctx.PokerPrinterType)
 				}*/
-				GamePokerPlay(ctx, data)
+				GamePokerPlay(ctx, input.Data)
 			}
 		}
 	}
+
 }
 
 func pokerLevelAliasContainer(b byte) bool {
